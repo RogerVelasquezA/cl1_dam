@@ -93,6 +93,12 @@ public class Libro {
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
+
+	@Override
+	public String toString() {
+		return "Libro [idLibro=" + idLibro + ", titulo=" + titulo + ", precio=" + precio + ", cantidad=" + cantidad
+				+ ", origen=" + origen + ", tema=" + tema + "]";
+	}
 	
 	
 

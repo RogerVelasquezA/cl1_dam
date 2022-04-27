@@ -1,4 +1,4 @@
-package com.model.cl1.util;
+package com.cibertec.cl1.util;
 
 import java.util.Properties;
 
@@ -8,8 +8,8 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
-import com.cibertec.hibernate.model.Carrera;
-import com.cibertec.hibernate.model.Estudiante;
+import com.cibertec.cl1.model.Libro;
+import com.cibertec.cl1.model.Tema;
 
 public class Cl1Util {
 	private static SessionFactory sessionFactory;
@@ -19,7 +19,7 @@ public class Cl1Util {
 				Configuration configuration = new Configuration();
 				Properties settings = new Properties();
 				settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
-				settings.put(Environment.URL, "jdbc:mysql://localhost:3306/hibernate_crud");
+				settings.put(Environment.URL, "jdbc:mysql://localhost:3306/CL1_Libro");
 				settings.put(Environment.USER, "root");
 				settings.put(Environment.PASS, "");
 				settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
@@ -27,8 +27,8 @@ public class Cl1Util {
 				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 				settings.put(Environment.HBM2DDL_AUTO, "create-drop");
 				configuration.setProperties(settings);
-				configuration.addAnnotatedClass(Estudiante.class);
-				configuration.addAnnotatedClass(Carrera.class);
+				configuration.addAnnotatedClass(Libro.class);
+				configuration.addAnnotatedClass(Tema.class);
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().
 						applySettings(configuration.getProperties()).build();
 				sessionFactory = configuration.buildSessionFactory(serviceRegistry);				
